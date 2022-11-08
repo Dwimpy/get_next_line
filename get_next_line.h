@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:13:28 by arobu             #+#    #+#             */
-/*   Updated: 2022/11/06 17:31:44 by arobu            ###   ########.fr       */
+/*   Updated: 2022/11/08 15:59:53 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,16 @@
 
 # define GNL_LINEBREAK '\n'
 # define GNL_EOF_NULL '\0'
-# define GNL_ERROR 0
+# define GNL_ERROR -1
 # define GNL_EOF 0
+
+#include <stdlib.h>
 
 typedef struct s_gnl
 {
-	t_gnl			*gnl;
-	t_gnl			*next;
+	struct s_gnl	*next;
 	char			*line;
+	char			*next_line;
 	int				fd;
 }				t_gnl;
 
