@@ -6,11 +6,11 @@ do
 done
 for i in *.o
 do
-	chmod +444 $i
+	chmod 777 $i
 done
 echo "Compilation Successful."
 DIRS=$(find . -type f -name "*.o" | tr '\n' ' ' | sed 's/\.\///g')
 
-gcc -o test ${DIRS}
+gcc -o test ${DIRS} -fsantize=address -g3
 
 echo "Test executable created."
