@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:12:00 by arobu             #+#    #+#             */
-/*   Updated: 2022/11/10 04:15:07 by arobu            ###   ########.fr       */
+/*   Updated: 2022/11/10 04:20:21 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 void	create_node(t_gnl **node, int fd)
 {
@@ -79,26 +79,24 @@ char	*ft_update_leftover(char *left_over)
 
 char	*get_next_line(int fd)
 {
-	static char		*left_over;
+	static char		*left_over[MAXFILES];
 	t_gnl			*gnl;
 	char			*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	create_node(&gnl, fd);
-	left_over = ft_process_buffer(&gnl, left_over);
-	if (!left_over)
+	left_over[gnl -> fd] = ft_process_buffer(&gnl, left_over[gnl -> fd]);
+	if (!left_over[gnl -> fd])
 	{
 		free(gnl);
 		return (NULL);
 	}
-	if (*left_over)
-		line = ft_strdup(ft_get_line(&gnl, left_over));
+	if (*left_over[gnl -> fd])
+		line = ft_strdup(ft_get_line(&gnl, left_over[gnl -> fd]));
 	else
-	{
 		line = NULL;
-	}
-	left_over = ft_update_leftover(left_over);
+	left_over[gnl -> fd] = ft_update_leftover(left_over[gnl -> fd]);
 	free(gnl -> line);
 	free(gnl);
 	return (line);
