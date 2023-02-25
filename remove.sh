@@ -1,1 +1,0 @@
-rm -Rf test *.o

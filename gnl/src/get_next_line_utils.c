@@ -6,13 +6,13 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:24:08 by arobu             #+#    #+#             */
-/*   Updated: 2022/11/10 03:36:18 by arobu            ###   ########.fr       */
+/*   Updated: 2023/02/25 14:29:48 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr_gnl(const char *s, int c)
 {
 	if (!s)
 		return (NULL);
@@ -27,7 +27,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen_gnl(const char *s)
 {
 	unsigned int	count;
 
@@ -42,13 +42,13 @@ size_t	ft_strlen(const char *s)
 	return (count);
 }
 
-char	*ft_strdup(const char *string)
+char	*ft_strdup_gnl(const char *string)
 {
 	char	*destination;
 	char	*dst_start;
 	int		string_len;
 
-	string_len = ft_strlen(string);
+	string_len = ft_strlen_gnl(string);
 	destination = (char *)malloc(sizeof(char) * (string_len + 1));
 	if (!destination)
 		return (NULL);
@@ -63,7 +63,7 @@ char	*ft_strdup(const char *string)
 	return (dst_start);
 }
 
-char	*ft_substr(char const *str, unsigned int start_index, size_t len)
+char	*ft_substr_gnl(char const *str, unsigned int start_index, size_t len)
 {
 	char	*substring;
 	size_t	size;
@@ -72,10 +72,10 @@ char	*ft_substr(char const *str, unsigned int start_index, size_t len)
 	i = 0;
 	if (!str)
 		return (NULL);
-	if (ft_strlen(str) < start_index)
-		return (ft_strdup(""));
+	if (ft_strlen_gnl(str) < start_index)
+		return (ft_strdup_gnl(""));
 	str += start_index;
-	size = ft_strlen(str);
+	size = ft_strlen_gnl(str);
 	if (size < len)
 		len = size;
 	substring = (char *)malloc(sizeof(char) * (len + 1));
@@ -90,18 +90,18 @@ char	*ft_substr(char const *str, unsigned int start_index, size_t len)
 	return (substring);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	char	*joint_string;
 	char	*s1_ptr;
 	size_t	len;
 
 	if (!s1)
-		s1 = ft_strdup("");
+		s1 = ft_strdup_gnl("");
 	if (!s1 || !s2)
 		return (NULL);
 	s1_ptr = s1;
-	len = (ft_strlen(s1) + ft_strlen(s2));
+	len = (ft_strlen_gnl(s1) + ft_strlen_gnl(s2));
 	joint_string = (char *)malloc(sizeof(char) * (len + 1));
 	while (*s1 != '\0')
 		*joint_string++ = *s1++;
