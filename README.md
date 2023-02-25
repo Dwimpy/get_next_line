@@ -30,6 +30,5 @@ Its implementation and the accompanying helper functions in this project meet th
   make bonus
 ```
 ## Usage:
-```
-  Link the static libraries created with your project and call get_next_line() on an open file descriptor.
-```
+  > Link the static libraries created with your project and 
+  > call get_next_line() on an open file descriptor.
