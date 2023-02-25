@@ -13,8 +13,7 @@ The function takes an integer file descriptor value `fd` as a parameter and retu
 If there is nothing else to read or if an error occurred, the function returns NULL.
 
 The function uses external functions `read()`, `malloc()`, and `free()`. To define the buffer size for `read()`, 
-the option `-D BUFFER_SIZE=n` must be added to the compiler call. The buffer size value will be modified by 
-peer-evaluators and the Moulinette in order to test the code.
+the option `-D BUFFER_SIZE=n` must be added to the compiler call.
 
 The implementation of `get_next_line()` allows repeated calls to read the text file pointed to by the file descriptor,
 one line at a time. The function works as expected when reading a file or reading from the standard input.
