@@ -6,14 +6,14 @@
 #    By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 01:17:05 by arobu             #+#    #+#              #
-#    Updated: 2023/02/25 16:27:39 by arobu            ###   ########.fr        #
+#    Updated: 2023/02/25 17:53:21 by arobu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
 
-NAME			= gnl.a
-NAME_BONUS		= gnl_bonus.a
+NAME			= libgnl.a
+NAME_BONUS		= libgnlbonus.a
 INCLUDE			= -I./gnl/include/
 INCLUDE_BONUS	= -I./gnl_bonus/include/
 SRC				= ./gnl/src/
