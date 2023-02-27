@@ -6,7 +6,7 @@
 #    By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 01:17:05 by arobu             #+#    #+#              #
-#    Updated: 2023/02/25 17:53:21 by arobu            ###   ########.fr        #
+#    Updated: 2023/02/27 14:15:07 by arobu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,13 +64,13 @@ $(OBJ):
 			@mkdir -p $(OBJ)
 
 clean:
-			@$(RM) $(NAME)
-			@$(RM) $(NAME_BONUS)
+			@$(RM) -f $(NAME)
+			@$(RM) -f $(NAME_BONUS)
+			@$(RM) -rdf $(OBJ) 
+			@$(RM) -rdf $(OBJ_BONUS)
 			@echo "$(YELLOW)Object$(DEF_COLOR) $(CYAN)files successfullly cleaned!$(DEF_COLOR)"
 
-fclean:		clean
-			@$(RM) -rdf $(OBJ) 
-			@$(RM) -rdf $(OBJ_BONUS) 
+fclean:		clean 
 			@$(RM) -f $(NAME)
 			@$(RM) -f $(NAME_BONUS)
 			@echo "$(YELLOW)Libraries$(DEF_COLOR) $(CYAN)successfully cleaned!$(DEF_COLOR)"
